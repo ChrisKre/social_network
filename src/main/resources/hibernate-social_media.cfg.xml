@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">
+            jdbc:postgresql://pgsql.ins.hs-anhalt.de:5432/stud04_db?currentSchema=social_network
+        </property>
+        <property name="hibernate.connection.username">stud04</property>
+        <property name="hibernate.connection.password">9cR8r/9L</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="hibernate.connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQL92Dialect</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.DisabledCaching</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="hibernate.show_sql">false</property>
+
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <mapping class="models.modelsHibernate.person.Person"/>
+        <mapping class="models.modelsHibernate.place.Place"/>
+        <mapping class="models.modelsHibernate.place.Continent"/>
+        <mapping class="models.modelsHibernate.place.Country"/>
+        <mapping class="models.modelsHibernate.place.City"/>
+        <mapping class="models.modelsHibernate.person.knows.Knows"/>
+        <mapping class="models.modelsHibernate.person.knows.KnowsPath"/>
+        <mapping class="models.modelsHibernate.person.likes.LikesComment"/>
+        <mapping class="models.modelsHibernate.person.views.Pkp_Symmetric"/>
+
+        <mapping class="models.modelsHibernate.tag.Tag"/>
+        <mapping class="models.modelsHibernate.tag.TagClass"/>
+        <mapping class="models.modelsHibernate.forum.Forum"/>
+        <mapping class="models.modelsHibernate.forum.hasMember.HasMember"/>
+
+        <mapping class="models.modelsHibernate.organisation.Company"/>
+        <mapping class="models.modelsHibernate.organisation.Organisation"/>
+        <mapping class="models.modelsHibernate.organisation.University"/>
+        <mapping class="models.modelsHibernate.person.work.WorkAt"/>
+        <mapping class="models.modelsHibernate.person.study.StudyAt"/>
+        <mapping class="models.modelsHibernate.message.Comment"/>
+        <mapping class="models.modelsHibernate.message.Post"/>
+
+
+    </session-factory>
+
+</hibernate-configuration>
